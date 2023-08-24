@@ -15,19 +15,38 @@
 */
 
 
-const playerSelection = prompt("Rock, Paper or Scissors?").toUpperCase();
-console.log(playerSelection);
-const computerSelection = getComputerChoice().toUpperCase();
+const playerSelection = prompt("Rock, Paper or Scissors?").toLowerCase();
+const computerSelection = getComputerChoice().toLowerCase();
+
+console.log(playerSelection + " " + computerSelection);
 
 
 // GENERATE A RANDOM PICK FOR THE COMPUTER
 
 function getComputerChoice() {
-    let randomChoice = ["Rock", "Paper", "Scissors"];
 
+    let randomChoice = ["Rock", "Paper", "Scissors"];
     let choice = randomChoice[Math.floor(Math.random() * randomChoice.length)];
     return choice;
 }
 
-console.log(getComputerChoice());
 
+
+// ROUND
+
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection === computerSelection) {
+        return "DRAW: both chosed " + playerSelection;
+    }
+    else if (playerSelection === "rock" && computerSelection === "scissors" ||
+        playerSelection === "paper" && computerSelection === "rock"    ||
+        playerSelection === "scissors" && computerSelection === "paper") {
+        return "WIN: " + playerSelection + " beats " + computerSelection;
+    }
+    else {
+        return "LOSE: " + playerSelection + " lose to " + computerSelection;
+    }
+
+}
+
+console.log(playRound(playerSelection, computerSelection));

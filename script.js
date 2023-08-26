@@ -18,14 +18,17 @@ let computerScore = 0;
 function playRound(playerSelection, computerSelection) {
 
     if (playerSelection === computerSelection) {
+        console.log("TIE");
         return ++playerScore && ++computerScore;
     }
     else if (playerSelection === "rock" && computerSelection === "scissors" ||
     playerSelection === "paper" && computerSelection === "rock"    ||
     playerSelection === "scissors" && computerSelection === "paper") {
+        console.log("WIN: " + playerSelection + " beats " + computerSelection);
         return ++playerScore;
     }
     else {
+        console.log("LOSE: " + playerSelection + " lose to " + computerSelection);
         return ++computerScore;
     }
 }
@@ -35,12 +38,11 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
     for (let i = 0; i < 5; i++) {
-    const playerSelection = prompt("Rock, Paper or Scissors?").toLowerCase();
-    const computerSelection = getComputerChoice().toLowerCase();
+    const playerSelection = prompt("Rock, Paper or Scissors?").toUpperCase();
+    const computerSelection = getComputerChoice().toUpperCase();
 
     playRound(playerSelection, computerSelection);
 
-    console.log("Player choose: " +  playerSelection + " Computer choose: " + computerSelection);
     console.log("Player score is: " + playerScore + " and Computer score is: " + computerScore);
 
     }

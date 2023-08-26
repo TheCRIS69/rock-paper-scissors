@@ -1,52 +1,61 @@
 // ROCK PAPER SCISSORS
 
-// ROCK > SCISSORS
-// PAPER > ROCK
-// SCISSORS > PAPER
-
-
-/*
->> STEPS: 
-1. functie getComputerChoice() care sa alega random piatra hartie foarfeca 
-2. functie pt runda care sa decida cn o castigat 
-3. functie game() -> functie anterioara in interior -> 5 runde iar cine are cel mai mare scor la final sa castige.
-
-   + EXCEPTIE CAND INTRODUCI CEVA DIFERIT DE ROCK PAPER SCISSORS SA DEA CV ALERTA SAU PLM
-*/
-
-
-const playerSelection = prompt("Rock, Paper or Scissors?").toLowerCase();
-const computerSelection = getComputerChoice().toLowerCase();
-
-console.log(playerSelection + " " + computerSelection);
-
-
 // GENERATE A RANDOM PICK FOR THE COMPUTER
 
 function getComputerChoice() {
-
     let randomChoice = ["Rock", "Paper", "Scissors"];
     let choice = randomChoice[Math.floor(Math.random() * randomChoice.length)];
     return choice;
 }
 
 
-
 // ROUND
 
+let playerScore = 0;
+let computerScore = 0;
+
+
 function playRound(playerSelection, computerSelection) {
+
     if (playerSelection === computerSelection) {
-        return "DRAW: both chosed " + playerSelection;
+        return ++playerScore && ++computerScore;
     }
     else if (playerSelection === "rock" && computerSelection === "scissors" ||
-        playerSelection === "paper" && computerSelection === "rock"    ||
-        playerSelection === "scissors" && computerSelection === "paper") {
-        return "WIN: " + playerSelection + " beats " + computerSelection;
+    playerSelection === "paper" && computerSelection === "rock"    ||
+    playerSelection === "scissors" && computerSelection === "paper") {
+        return ++playerScore;
     }
     else {
-        return "LOSE: " + playerSelection + " lose to " + computerSelection;
+        return ++computerScore;
     }
-
 }
 
-console.log(playRound(playerSelection, computerSelection));
+
+// GAME
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+    const playerSelection = prompt("Rock, Paper or Scissors?").toLowerCase();
+    const computerSelection = getComputerChoice().toLowerCase();
+
+    playRound(playerSelection, computerSelection);
+
+    console.log("Player choose: " +  playerSelection + " Computer choose: " + computerSelection);
+    console.log("Player score is: " + playerScore + " and Computer score is: " + computerScore);
+
+    }
+
+    return playerScore + computerScore;
+}
+
+game();
+
+if (playerScore > computerScore) {
+    alert("You won!");
+}
+else if (playerScore < computerScore) {
+    alert("You lost...");
+}
+else {
+    alert("It's a tie!")
+}

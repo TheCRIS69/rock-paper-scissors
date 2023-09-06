@@ -34,23 +34,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
-// GAME
-
-function game() {
-    for (let i = 0; i < 5; i++) {
-    const playerSelection = prompt("Rock, Paper or Scissors?").toUpperCase();
-    const computerSelection = getComputerChoice().toUpperCase();
-
-    playRound(playerSelection, computerSelection);
-
-    console.log("Player score is: " + playerScore + " and Computer score is: " + computerScore);
-
-    }
-
-    return playerScore + computerScore;
-}
-
-game();
+/*
 
 if (playerScore > computerScore) {
     alert("You won!");
@@ -61,3 +45,5 @@ else if (playerScore < computerScore) {
 else {
     alert("It's a tie!")
 }
+
+*/

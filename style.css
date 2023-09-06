@@ -1,0 +1,62 @@
+:root {
+    --clr-background: rgb(43, 117, 255);
+    --clr-darkBlue: rgb(0, 61, 173);
+}
+
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  * {
+    margin: 0;
+  }
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  input, button, textarea, select {
+    font: inherit;
+  }
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+
+body {
+    background-color: var(--clr-background);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.player-selection {
+    display: grid;
+    place-items: center;
+    max-width: 300px;
+}
+.button {
+    min-width: 5rem;
+}
+
+.round-container {
+    background: var(--clr-darkBlue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    margin: 2rem 0;
+}
+
+.round-winner-message {
+    font-size: 2rem;
+}
+

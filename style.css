@@ -1,6 +1,13 @@
 :root {
-    --clr-background: rgb(43, 117, 255);
-    --clr-darkBlue: rgb(0, 61, 173);
+    --clr-lightBlue: rgb(43, 117, 255);
+    --clr-darkBlue: rgb(0, 69, 197);
+    --clr-darkGray: rgb(156, 156, 156);
+    --clr-black: rgb(0, 0, 0);
+    --clr-white: rgb(255, 255, 255);
+
+    --ff-main: 'Signika Negative', sans-serif;
+
+    --border-content: 2px solid var(--clr-white);
 }
 
 /*
@@ -28,35 +35,82 @@
     overflow-wrap: break-word;
   }
 
-
 body {
-    background-color: var(--clr-background);
+  background-color: var(--clr-darkBlue);
+  font-family: var(--ff-main);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex-center {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
+  background-color: var(--clr-lightBlue);
+  border: var(--border-content);
+  border-radius: 2rem;
+  max-width: 800px;
+}
+
+.game-selections {
+  display: flex;
 }
 
 .player-selection {
-    display: grid;
-    place-items: center;
-    max-width: 300px;
+  display: grid;
+  place-items: center;
 }
+
 .button {
-    min-width: 5rem;
+  min-width: 6.25rem;
+  border-radius: 1rem;
+  border: var(--border-content);
+  background: var(--clr-darkGray);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+}
+.button:hover {
+  transform: scale(1.2);
 }
 
-.round-container {
-    background: var(--clr-darkBlue);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100px;
-    margin: 2rem 0;
+.round-decission {
+  border: var(--border-content);
+  border-radius: 1rem;
+  background-color: var(--clr-darkGray);
+  margin: 2rem;
 }
 
-.round-winner-message {
-    font-size: 2rem;
+
+.game-scores {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 1rem;
+  gap: 1rem;
 }
+
+@media (max-width: 450px) {
+  .game-scores {
+    flex-direction: column;
+  }
+}
+
+.score {
+  background: var(--clr-darkGray);
+  padding: .6rem;
+  border: var(--border-content);
+  border-radius: 1rem;
+  min-width: 215px;
+}
+
+
+
+
 

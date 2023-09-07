@@ -4,38 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image" href="./images/Rock+Paper+Scissors+Logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
     <main class="flex-center">
         <div class="container">
 
-            <div class="player-selection">
-                <div class="player-selection__rock">
+            <div class="game-selections">
+                <div class="player-selection">
                     <img src="./images/rockIcon.png" alt="A image with the rock option for the game">
                     <button class="button">rock</button>
                 </div>
 
-                <div class="player-selection__paper">
+                <div class="player-selection">
                     <img src="./images/paperIcon.png" alt="A image with the paper option for the game">
                     <button class="button">paper</button>
                 </div>
 
-                <div class="player-selection__scissors">
+                <div class="player-selection">
                     <img src="./images/scissorsIcon.png" alt="A image with the scissors option for the game">
                     <button class="button">scissors</button>
                 </div>
             </div>
 
             <div class="round-decission">
-                <h1>YOU WON!</h1>
+                <h1 class="text-center">who won, tho?</h1>
             </div>
 
-            <div class="score">
-                <div class="score__player">0</div>
-                <div class="score__computer">0</div>
+            <div class="game-scores">
+                <div class="score">
+                    <h2 class="text-center">Player Score: 0</h2>
+                </div>
+
+                <div class="score">
+                    <h2 class="text-center">Computer Score: 0</h2>
+                </div>
             </div>
 
         </div>

@@ -9,31 +9,36 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <main>
+    <main class="flex-center">
+        <div class="container">
 
-    <div class="container">
-        <div class="player-selection">
-          <img src="./images/rockIcon.png" alt="The rock icon for the game!">
-          <button class="button">rock</button>
-        </div>
+            <div class="player-selection">
+                <div class="player-selection__rock">
+                    <img src="./images/rockIcon.png" alt="A image with the rock option for the game">
+                    <button class="button">rock</button>
+                </div>
 
-        <div class="player-selection">
-            <img src="./images/paperIcon.png" alt="The paper icon for the game!">
-            <button class="button">paper</button>
-        </div>
+                <div class="player-selection__paper">
+                    <img src="./images/paperIcon.png" alt="A image with the paper option for the game">
+                    <button class="button">paper</button>
+                </div>
 
-        <div class="player-selection">
-            <img src="./images/scissorsIcon.png" alt="The scissors icon for the game!">
-            <button class="button">scissors</button>
+                <div class="player-selection__scissors">
+                    <img src="./images/scissorsIcon.png" alt="A image with the scissors option for the game">
+                    <button class="button">scissors</button>
+                </div>
+            </div>
+
+            <div class="round-decission">
+                <h1>YOU WON!</h1>
+            </div>
+
+            <div class="score">
+                <div class="score__player">0</div>
+                <div class="score__computer">0</div>
+            </div>
+
         </div>
-    </div>
-        
-    
-    <div class="round-container">
-        <p class="round-winner-message">BV AI CASTIGAT</p>
-    </div>
-    
     </main>
-
 </body>
 </html>

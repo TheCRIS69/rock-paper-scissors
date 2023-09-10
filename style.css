@@ -104,7 +104,7 @@ body {
 
 .score {
   background: var(--clr-darkGray);
-  padding: .6rem;
+  padding: .2rem;
   border: var(--border-content);
   border-radius: 1rem;
   min-width: 215px;

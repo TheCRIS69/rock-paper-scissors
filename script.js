@@ -1,6 +1,12 @@
 const buttonRock = document.querySelector("#rock");
 const buttonPaper = document.querySelector("#paper");
 const buttonScissors = document.querySelector("#scissors");
+const roundWinner = document.querySelector("#roundWinner");
+const playerScoreUpdate = document.querySelector("#playerScore");
+const computerScoreUpdate = document.querySelector("#computerScore");
+
+let playerScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
     let randomChoice = ["rock", "paper", "scissors"];
@@ -15,7 +21,6 @@ buttonRock.addEventListener('click', () => {
 
     playRound(playerSelection, computerSelection);
 });
-
 
 buttonPaper.addEventListener('click', () => {
     let playerSelection = 'paper';
@@ -32,43 +37,30 @@ buttonScissors.addEventListener('click', () => {
 });
     
 
-let playerScore = 0;
-let computerScore = 0;
-
-
 function playRound(playerSelection, computerSelection) {
-
     if (playerSelection === computerSelection) {
-        console.log("TIE");
+        roundWinner.textContent = "TIE: both chosed " + playerSelection;
         return 0;
     }    
     else if (playerSelection === "rock" && computerSelection === "scissors" ||
     playerSelection === "paper" && computerSelection === "rock"    ||
     playerSelection === "scissors" && computerSelection === "paper") {
-        console.log("WIN: " + playerSelection + " beats " + computerSelection);
-        return ++playerScore;
+        roundWinner.textContent = "WIN: " + playerSelection + " beats " + computerSelection;
+        ++playerScore;
+        playerScoreUpdate.textContent = playerScore;
     }    
     else {
-        console.log("LOSE: " + playerSelection + " lose to " + computerSelection);
-        return ++computerScore;
+        roundWinner.textContent = "LOSE: " + playerSelection + " lose to " + computerSelection;
+        ++computerScore;
+        computerScoreUpdate.textContent = computerScore;
     }    
-
 }  
 
 
 
 
 
-/*
 
-if (playerScore > computerScore) {
-    alert("You won!");
-}
-else if (playerScore < computerScore) {
-    alert("You lost...");
-}
-else {
-    alert("It's a tie!")
-}
 
-*/
+
+

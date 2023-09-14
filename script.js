@@ -14,33 +14,36 @@ function getComputerChoice() {
     return choice;
 }
 
+buttonRock.addEventListener('click', playRoundRock);
+buttonPaper.addEventListener('click', playRoundPaper);
+buttonScissors.addEventListener('click', playRoundScissors);
 
-buttonRock.addEventListener('click', () => {
-    let playerSelection = 'rock';
-    let computerSelection = getComputerChoice();
 
-    playRound(playerSelection, computerSelection);
-});
-
-buttonPaper.addEventListener('click', () => {
-    let playerSelection = 'paper';
-    let computerSelection = getComputerChoice();
-
-    playRound(playerSelection, computerSelection);
-});
-
-buttonScissors.addEventListener('click', () => {
-    let playerSelection = 'scissors';
-    let computerSelection = getComputerChoice();
-
-    playRound(playerSelection, computerSelection);
-});
+function playRoundRock() {
+    const playerSelection = 'rock';
+    const computerSelection = getComputerChoice();
     
+    playRound(playerSelection, computerSelection);
+}
+
+function playRoundPaper() {
+    const playerSelection = 'paper';
+    const computerSelection = getComputerChoice();
+    
+    playRound(playerSelection, computerSelection);
+}
+
+function playRoundScissors() {
+    const playerSelection = 'scissors';
+    const computerSelection = getComputerChoice();
+    
+    playRound(playerSelection, computerSelection);
+}
+
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         roundWinner.textContent = "TIE: both chosed " + playerSelection;
-        return 0;
     }    
     else if (playerSelection === "rock" && computerSelection === "scissors" ||
     playerSelection === "paper" && computerSelection === "rock"    ||
@@ -53,9 +56,29 @@ function playRound(playerSelection, computerSelection) {
         roundWinner.textContent = "LOSE: " + playerSelection + " lose to " + computerSelection;
         ++computerScore;
         computerScoreUpdate.textContent = computerScore;
-    }    
+    }
+    
+    gameOver();
+
 }  
 
+
+function gameOver() {
+    if (playerScore === 5) {
+        buttonRock.removeEventListener('click', playRoundRock);
+        buttonPaper.removeEventListener('click', playRoundPaper);
+        buttonScissors.removeEventListener('click', playRoundScissors);
+
+        roundWinner.textContent = "GAME OVER! YOU WON!";
+    }
+    if (computerScore === 5) {
+        buttonRock.removeEventListener('click', playRoundRock);
+        buttonPaper.removeEventListener('click', playRoundPaper);
+        buttonScissors.removeEventListener('click', playRoundScissors);
+
+        roundWinner.textContent = "GAME OVER! YOU LOST!";
+    }
+}
 
 
 

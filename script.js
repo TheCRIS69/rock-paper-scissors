@@ -1,9 +1,13 @@
+const gameSelections = document.querySelector(".game-selections");
 const buttonRock = document.querySelector("#rock");
 const buttonPaper = document.querySelector("#paper");
 const buttonScissors = document.querySelector("#scissors");
-const roundWinner = document.querySelector("#roundWinner");
+const gameWinner = document.querySelector("#roundWinner");
 const playerScoreUpdate = document.querySelector("#playerScore");
 const computerScoreUpdate = document.querySelector("#computerScore");
+
+const playAgain = document.querySelector(".play-again__button");
+playAgain.hidden = true;
 
 let playerScore = 0;
 let computerScore = 0;
@@ -43,42 +47,40 @@ function playRoundScissors() {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        roundWinner.textContent = "TIE: both chosed " + playerSelection;
+        gameWinner.textContent = "TIE: both chosed " + playerSelection;
     }    
     else if (playerSelection === "rock" && computerSelection === "scissors" ||
     playerSelection === "paper" && computerSelection === "rock"    ||
     playerSelection === "scissors" && computerSelection === "paper") {
-        roundWinner.textContent = "WIN: " + playerSelection + " beats " + computerSelection;
+        gameWinner.textContent = "WIN: " + playerSelection + " beats " + computerSelection;
         ++playerScore;
         playerScoreUpdate.textContent = playerScore;
     }    
     else {
-        roundWinner.textContent = "LOSE: " + playerSelection + " lose to " + computerSelection;
+        gameWinner.textContent = "LOSE: " + playerSelection + " lose to " + computerSelection;
         ++computerScore;
         computerScoreUpdate.textContent = computerScore;
     }
     
     gameOver();
-
 }  
-
 
 function gameOver() {
     if (playerScore === 5) {
-        buttonRock.removeEventListener('click', playRoundRock);
-        buttonPaper.removeEventListener('click', playRoundPaper);
-        buttonScissors.removeEventListener('click', playRoundScissors);
-
-        roundWinner.textContent = "GAME OVER! YOU WON!";
+        gameSelections.remove()
+        gameWinner.textContent = "GAME OVER! YOU WON!";
+        playAgain.hidden = false;
     }
     if (computerScore === 5) {
-        buttonRock.removeEventListener('click', playRoundRock);
-        buttonPaper.removeEventListener('click', playRoundPaper);
-        buttonScissors.removeEventListener('click', playRoundScissors);
-
-        roundWinner.textContent = "GAME OVER! YOU LOST!";
+        gameSelections.remove()
+        gameWinner.textContent = "GAME OVER! YOU LOST...";
+        playAgain.hidden = false;
     }
 }
+
+playAgain.addEventListener('click', () => window.location.reload(true));
+
+
 
 
 

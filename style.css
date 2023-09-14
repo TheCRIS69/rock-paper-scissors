@@ -1,7 +1,7 @@
 :root {
     --clr-lightBlue: rgb(43, 117, 255);
     --clr-darkBlue: rgb(0, 69, 197);
-    --clr-darkGray: rgb(156, 156, 156);
+    --clr-lightGray: rgb(156, 156, 156);
     --clr-black: rgb(0, 0, 0);
     --clr-white: rgb(255, 255, 255);
 
@@ -51,7 +51,7 @@ body {
   align-items: center;
 }
 
-.container {
+.game-container {
   background-color: var(--clr-lightBlue);
   border: var(--border-content);
   border-radius: 2rem;
@@ -71,7 +71,7 @@ body {
   min-width: 6.25rem;
   border-radius: 1rem;
   border: var(--border-content);
-  background: var(--clr-darkGray);
+  background: var(--clr-lightGray);
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: .1rem;
@@ -80,10 +80,32 @@ body {
   transform: scale(1.2);
 }
 
+.play-again {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.play-again__button {
+  margin: 1rem;
+  font-size: 3rem;
+  border-radius: 2rem;
+  border: var(--border-content);
+  cursor: pointer;
+  padding: 1rem;
+  transition: ease-in .3s;
+  background: var(--clr-lightGray);
+  color: var(--clr-white);
+}
+
+.play-again__button:hover {
+  box-shadow: 1rem 1rem 2rem var(--clr-darkBlue);
+  transform: scale(1.1);
+}
+
 .round-decission {
   border: var(--border-content);
   border-radius: 1rem;
-  background-color: var(--clr-darkGray);
+  background-color: var(--clr-lightGray);
   margin: 2rem;
 }
 
@@ -103,7 +125,7 @@ body {
 }
 
 .score {
-  background: var(--clr-darkGray);
+  background: var(--clr-lightGray);
   padding: .2rem;
   border: var(--border-content);
   border-radius: 1rem;
